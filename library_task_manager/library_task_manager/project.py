@@ -43,7 +43,9 @@ class SimpleProject(Project):
 
         # Перевіримо, що таке завдання реально в проєкті
         if not any(self._get_task_id(t) == task_id for t in self._tasks):
+
             raise ValueError(f"Task  new with id={task_id} is not in this project.")
+
 
         # Базова валідація ресурсів
         normalized: List[ResourceAllocation] = []
