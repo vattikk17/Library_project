@@ -26,7 +26,7 @@ class SimpleProject(Project):
         # Забороняємо дублікати за task_id (якщо він є)
         task_id = self._get_task_id(task)
         if any(self._get_task_id(t) == task_id for t in self._tasks):
-            raise ValueError(f"Task with id={task_id} already exists in project.")
+            raise ValueError(f" with id={task_id} already exists in project.")
 
         self._tasks.append(task)
 
@@ -49,9 +49,9 @@ class SimpleProject(Project):
         normalized: List[ResourceAllocation] = []
         for a in allocations:
             if not a.resource_name.strip():
-                raise ValueError("Resource name cannot be empty.")
+                raise ValueError(".")
             if a.units <= 0:
-                raise ValueError("Resource units must be > 0.")
+                raise ValueError(".")
             normalized.append(a)
 
         self._allocations[task_id] = normalized
